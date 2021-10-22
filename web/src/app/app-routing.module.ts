@@ -21,6 +21,7 @@ import { EventsDetailsPageComponent } from './components/pages/events-details-pa
 import { CoursesPageComponent } from './components/pages/courses-page/courses-page.component';
 import { CoursesDetailsPageComponent } from './components/pages/courses-details-page/courses-details-page.component';
 import { UploadDataComponent } from './components/pages/upload-data/upload-data.component';
+import { TranslateDataComponent } from './components/pages/translate-data/translate-data.component';
 
 const routes: Routes = [
     {path: '', component: UploadDataComponent},
@@ -44,6 +45,7 @@ const routes: Routes = [
     {path: 'blog-details', component: BlogDetailsPageComponent},
     {path: 'contact', component: ContactPageComponent},
     {path: 'upload', component: UploadDataComponent},
+    {path: 'translate', component: TranslateDataComponent},
     {path: '**', component: ErrorPageComponent}
 ];
 
