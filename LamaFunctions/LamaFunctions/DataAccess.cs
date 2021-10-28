@@ -9,10 +9,10 @@ namespace LamaFunctions
 {
     public class DataAccess
     {
-        private  readonly string EndpointUri = "<Need to get from azure>";
+        private  readonly string EndpointUri = "https://llamas-malas.documents.azure.com:443/";
 
         // The primary key for the Azure Cosmos account.
-        private  readonly string PrimaryKey = "<need to get from azure>";
+        private  readonly string PrimaryKey = "PzjjaoYonDsFBOec7YQdElje47VfZZlS73nu81NhdMXqXJ9lKCw29t2PDrWKstBDpQVyMfxkO3zS5SjRm11c6A==";
         private  CosmosClient cosmosClient;
 
         // The database we will create
