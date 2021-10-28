@@ -6,7 +6,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class FunctionService {
 
-    myAppUrl = 'https://lamafunctions20210904182502.azurewebsites.net/api/';
+    myAppUrl = 'https://lamafunctions20211028014432.azurewebsites.net/api/';
 
     // myAppUrl: string = "http://localhost:7071/api/";
 
