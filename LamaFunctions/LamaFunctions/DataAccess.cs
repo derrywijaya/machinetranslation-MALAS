@@ -40,13 +40,13 @@ namespace LamaFunctions
         {
             // Create a new database
             this.database = await this.cosmosClient.CreateDatabaseIfNotExistsAsync(databaseId);
-            //Console.WriteLine("Created Database: {0}\n", this.database.Id);
+            Console.WriteLine("Created Database: {0}\n", this.database.Id);
         }
         private async Task CreateContainerAsync()
         {
             // Create a new container
             this.container = await this.database.CreateContainerIfNotExistsAsync(containerId, "/partitionKey");
-            //Console.WriteLine("Created Container: {0}\n", this.container.Id);
+            Console.WriteLine("Created Container: {0}\n", this.container.Id);
         }
 
         private async Task ScaleContainerAsync()

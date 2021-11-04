@@ -7,7 +7,7 @@ import {IDropdown, IInputData} from 'src/services/models.service';
 import {ReffserviceService} from 'src/services/reffservice.service';
 
 @Component({
-    selector: 'app-upload-data',
+    selector: 'app-translate-data',
     templateUrl: './translate-data.component.html',
     styleUrls: ['./translate-data.component.scss']
 })
@@ -20,22 +20,62 @@ export class TranslateDataComponent implements OnInit {
         this._selectedData = value;
     }
 
-    public ngForm: FormGroup;
-    public IsSuccess = false;
-    private _selectedData: IInputData;
-    public languages: IDropdown[];
-
     constructor(private access: FunctionService,
                 private _reffService: ReffserviceService,
                 private fb: FormBuilder) {
     }
 
+    public ngForm: FormGroup;
+    public IsSuccess = false;
+    public message = '';
+    private _selectedData: IInputData;
+    public languages: IDropdown[];
+
+    pageTitleArea: pageTitle[] = [
+        {
+            title: 'Contact Us'
+        }
+    ];
+    contactInfoBox1: InfoBox1[] = [
+        {
+            icon: 'bx bx-map',
+            title: 'Our Address',
+            location: '175 5th Ave, New York, NY 10010, United States'
+        }
+    ];
+    contactInfoBox2: InfoBox2[] = [
+        {
+            icon: 'bx bx-phone-call',
+            title: 'Contact',
+            number: '(+44) - 45789 - 5789',
+            email: 'hello@wilo.com'
+        }
+    ];
+    contactInfoBox3: InfoBox3[] = [
+        {
+            icon: 'bx bx-time-five',
+            title: 'Hours of Operation',
+            text1: 'Monday - Friday: 09:00 - 20:00',
+            text2: 'Sunday & Saturday: 10:30 - 22:00'
+        }
+    ];
+
+    sectionTitle: sectionTitleContent[] = [
+        {
+            subTitle: 'Upload your translation data',
+            title: 'Ready to Translate?',
+            paragraphText: 'Your email address will not be published. Required fields are marked *'
+        }
+    ];
+    contactImage: Image[] = [
+        {
+            img: 'assets/img/contact.png'
+        }
+    ];
+
     ngOnInit(): void {
         this._selectedData = {} as IInputData;
-        this._selectedData.sourceLang = "";
-        this._selectedData.destLang = "";
-        this._selectedData.destLangId = "";
-        this._selectedData.sourceLangId = "";
+        this._selectedData.sourceModel = '';
 
         this._reffService.getLanguages().subscribe(
             (d: IDropdown[]) => {
@@ -51,16 +91,10 @@ export class TranslateDataComponent implements OnInit {
 
     createForm() {
         this.ngForm = this.fb.group({
-            //id: [''],
+            // id: [''],
             email: ['', Validators.required],
-            sourceLangId: [''],//, Validators.required],
-            sourceLang: ['', Validators.required],
-            sourceLangDesc: ['', Validators.required],
-            destLangId: [''],//, Validators.required],
-            destLang: ['', Validators.required],
-            destLangDesc: ['', Validators.required],
-            sourceToDestDic: [''],
-            destToSourceDic: [''],
+            sourceModel: [''], // , Validators.required],
+            messageToTranslate: ['', Validators.required],
             // lastName: [''],
             //   addressLine1: ['', Validators.required],
             //   addressLine2: [''],
@@ -73,31 +107,29 @@ export class TranslateDataComponent implements OnInit {
             //   closedHour: ['', Validators.required],
             //   additionalInfo: [''],
             //   description: [''],
-        })
+        });
     }
 
     onSubmit() {
-        let dataToSave: IInputData = this.ngForm.value;
+        const dataToSave: IInputData = this.ngForm.value;
         dataToSave.id = String(Guid.create());
-        dataToSave.sourceLang = this._selectedData.sourceLang;
-        dataToSave.destLang = this._selectedData.destLang;
-        dataToSave.sourceToDestDic = this._selectedData.sourceToDestDic;
-        dataToSave.destToSourceDic = this._selectedData.destToSourceDic;
+        dataToSave.sourceModel = this._selectedData.sourceModel;
+        dataToSave.messageToTranslate = this._selectedData.messageToTranslate;
         dataToSave.completed = false;
         dataToSave.partitionKey = dataToSave.completed;
-        //this.showToast(this.status, "Berhasil", "Data berhasil di simpan di database", "Sukses !!");
-        console.log(this.ngForm.get('destLangId').value)
-        console.log(this.ngForm.get('sourceLangId').value)
+        // this.showToast(this.status, "Berhasil", "Data berhasil di simpan di database", "Sukses !!");
+        console.log(this.ngForm.get('sourceModel').value);
+        console.log(this.ngForm.get('messageToTranslate').value);
         console.log(dataToSave);
-        console.log("Submitting data");
-        this.access.SaveData(dataToSave).subscribe(
+        console.log('Submitting data - Translate');
+        this.access.Translate(dataToSave).subscribe(
             () => {
                 this.setSuccessMessage();
-                document.getElementById("topDiv").scrollIntoView({
-                    behavior: "smooth",
-                    block: "start",
-                    inline: "nearest"
-                })
+                document.getElementById('topDiv').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start',
+                    inline: 'nearest'
+                });
             }
         );
     }
@@ -107,75 +139,33 @@ export class TranslateDataComponent implements OnInit {
     }
 
     testEmail() {
-        //this._emailService.sendEmail().then();
+        // this._emailService.sendEmail().then();
     }
 
     openFile(event, type) {
-        let input = event.target;
-        for (var index = 0; index < input.files.length; index++) {
-            let reader = new FileReader();
+        const input = event.target;
+        for (let index = 0; index < input.files.length; index++) {
+            const reader = new FileReader();
             reader.onload = () => {
                 // this 'text' is the content of the file
-                var text = reader.result;
-                //console.log(text);
-                if (type === "source") {
+                const text = reader.result;
+                // console.log(text);
+                if (type === 'source') {
                     this._selectedData.sourceLang = this._selectedData.sourceLang + text;
-                } else if (type === "dest") {
+                } else if (type === 'dest') {
                     this._selectedData.destLang = this._selectedData.destLang + text;
-                } else if (type === "sourceDic") {
+                } else if (type === 'sourceDic') {
                     this._selectedData.sourceToDestDic = this._selectedData.sourceToDestDic + text;
-                } else if (type === "descDic") {
+                } else if (type === 'descDic') {
                     this._selectedData.destToSourceDic = this._selectedData.destToSourceDic + text;
                 }
 
-            }
+            };
             reader.readAsText(input.files[index]);
         }
-        ;
+
 
     }
-
-    pageTitleArea: pageTitle[] = [
-        {
-            title: 'Contact Us'
-        }
-    ]
-    contactInfoBox1: InfoBox1[] = [
-        {
-            icon: 'bx bx-map',
-            title: 'Our Address',
-            location: '175 5th Ave, New York, NY 10010, United States'
-        }
-    ]
-    contactInfoBox2: InfoBox2[] = [
-        {
-            icon: 'bx bx-phone-call',
-            title: 'Contact',
-            number: '(+44) - 45789 - 5789',
-            email: 'hello@wilo.com'
-        }
-    ]
-    contactInfoBox3: InfoBox3[] = [
-        {
-            icon: 'bx bx-time-five',
-            title: 'Hours of Operation',
-            text1: 'Monday - Friday: 09:00 - 20:00',
-            text2: 'Sunday & Saturday: 10:30 - 22:00'
-        }
-    ]
-
-    sectionTitle: sectionTitleContent[] = [
-        {
-            subTitle: "Upload your translation data",
-            title: 'Ready to Translate?',
-            paragraphText: 'Your email address will not be published. Required fields are marked *'
-        }
-    ]
-    contactImage: Image[] = [
-        {
-            img: 'assets/img/contact.png'
-        }
-    ]
 
 
 }

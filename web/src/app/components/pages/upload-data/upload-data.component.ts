@@ -124,7 +124,7 @@ contactImage: Image[] = [
     console.log(this.ngForm.get('destLangId').value);
     console.log(this.ngForm.get('sourceLangId').value);
     console.log(dataToSave);
-    console.log('Submitting data');
+    console.log('Submitting data to db');
     this.access.SaveData(dataToSave).subscribe(
         () => {this.setSuccessMessage();
                document.getElementById('topDiv').scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});

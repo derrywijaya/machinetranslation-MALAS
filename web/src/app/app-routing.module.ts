@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { GalleryPageComponent } from './components/pages/gallery-page/gallery-page.component';
 import { EventsPageComponent } from './components/pages/events-page/events-page.component';
 import { ErrorPageComponent } from './components/pages/error-page/error-page.component';
+// tslint:disable-next-line:max-line-length
 import { CaseStudiesThreeColumnsPageComponent } from './components/pages/case-studies-three-columns-page/case-studies-three-columns-page.component';
 import { HomepageOneComponent } from './components/pages/homepage-one/homepage-one.component';
 import { HomepageTwoComponent } from './components/pages/homepage-two/homepage-two.component';

@@ -31,7 +31,7 @@
 
         <div *ngIf="IsSuccess" class="row section-title">
             <blockquote class="wp-block-quote">
-                <p>Your data has been saved. We will let you know via email when we are done.</p>
+                <p>Hola!</p>
 
                 <cite>Derry</cite>
             </blockquote>
@@ -67,8 +67,8 @@
 
                                 <mat-form-field class="form-group form-control">
 
-                                    <mat-select matNativeControl style="width:100%;" formControlName="sourceLangId"
-                                                [ngModel]="selectedData.sourceLangId" [required]="true">
+                                    <mat-select matNativeControl style="width:100%;" formControlName="sourceModel"
+                                                [ngModel]="selectedData.sourceModel" [required]="true">
                                         <mat-option value="" selected></mat-option>
                                         <mat-option *ngFor="let c of languages" [value]="c.code">
                                             {{c.name}}
