@@ -2,7 +2,7 @@ from azure.cosmos import exceptions, CosmosClient, PartitionKey
 
 # Initialize the Cosmos client
 endpoint = "https://llamas-malas.documents.azure.com:443/"
-key = 'PzjjaoYonDsFBOec7YQdElje47VfZZlS73nu81NhdMXqXJ9lKCw29t2PDrWKstBDpQVyMfxkO3zS5SjRm11c6A=='
+key = 'Add You key Hhere'
 
 # <create_cosmos_client>
 client = CosmosClient(endpoint, key)
