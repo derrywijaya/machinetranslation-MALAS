@@ -16,7 +16,7 @@ export class DataAccessService {
   public config: IConfig;
 
   private endpoint: any = 'https://llamas-malas.documents.azure.com:443/';  // = this.config.endpoint
-  private key: any = 'PzjjaoYonDsFBOec7YQdElje47VfZZlS73nu81NhdMXqXJ9lKCw29t2PDrWKstBDpQVyMfxkO3zS5SjRm11c6A==' ;  // = config.key
+  private key: any = 'Add Your Key HERE' ;  // = config.key
 
   private databaseId: any = 'MntDB'; // = config.database.id
   private containerId: any = 'UploadedData'; // = config.container.id
