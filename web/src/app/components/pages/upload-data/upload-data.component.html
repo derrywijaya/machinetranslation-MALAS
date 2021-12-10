@@ -6,12 +6,12 @@
                 <li><a routerLink="/">Home</a></li>
                 <li>{{pageTitle.title}}</li>
             </ul>
-        </div> 
+        </div>
     </div>
 
      <div class="shape-img1"><img src="assets/img/shape/shape1.svg" alt="image"></div>
     <div class="shape-img2"><img src="assets/img/shape/shape2.png" alt="image"></div>
-    <div class="shape-img3"><img src="assets/img/shape/shape3.png" alt="image"></div> 
+    <div class="shape-img3"><img src="assets/img/shape/shape3.png" alt="image"></div>
 </section> -->
 <br>
 <br>
@@ -33,19 +33,19 @@
         <div  *ngIf="IsSuccess" class="row section-title">
             <blockquote class="wp-block-quote">
                 <p>Your data has been saved. We will let you know via email when we are done.</p>
-        
+
                 <cite>Derry</cite>
             </blockquote>
         </div>
 
         <div class="row">
-           
+
 
             <div class="col-lg-12 col-md-12">
                 <div class="contact-form">
                     <form id="contactForm" [formGroup]="ngForm" (ngSubmit)="onSubmit()" >
                         <div class="row">
-                           
+
 
                             <div class="col-lg-12 col-md-12">
                                 <div class="form-group">
@@ -54,48 +54,48 @@
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12">
-                                
+
                                 <label class="required">Source Language</label>
                                 <!-- <div class="form-group form-control ">
-                                   
+
                                     <select  style="width:100%;" formControlName="sourceLangId" [ngModel]="selected_data.sourceLangId" >
                                         <option *ngFor="let c of languages" value="'{{c.code}}'">{{c.name}}</option>
                                       </select>
-                                   
+
                                 </div> -->
-                                
+
                                 <mat-form-field class="form-group form-control">
-                                
-                                    <mat-select matNativeControl  style="width:100%;" formControlName="sourceLangId" [ngModel]="selected_data.sourceLangId" [required]="true" >                       
+
+                                    <mat-select matNativeControl  style="width:100%;" formControlName="sourceLangId" [ngModel]="selected_data.sourceLangId" [required]="true" >
                                       <mat-option value="" selected></mat-option>
                                       <mat-option *ngFor="let c of languages" [value]="c.code">
                                         {{c.name}}
                                       </mat-option>
                                     </mat-select>
                                   </mat-form-field>
-                               
+
                             </div>
                             <div class="col-lg-12 col-md-12">
                                 <div class="form-group">
                                     <label class="required">Source Language Description</label>
                                     <input type="text"  class="form-control" formControlName="sourceLangDesc" [(ngModel)]="selected_data.sourceLangDesc" placeholder="Source Language Description" [required]="true" >
                                 </div>
-                               
+
                             </div>
                             <br>
                             <br>
                             <div class="col-lg-12 col-md-12">
                                 <div class="form-group">
                                     <label class="required">Upload Source Language Text</label>
-                                    <input type="file"  class="form-control" formControlName="sourceLang" placeholder="Upload Soucer Language" [required]="true" (change)='openFile($event,"source")' >
+                                    <input type="file"  class="form-control" formControlName="sourceLang" placeholder="Upload Source Language" [required]="true" (change)='openFile($event,"source")' >
                                 </div>
-                                
+
                             </div>
                             <div class="col-lg-12 col-md-12">
                                 <label class="required">Destination Language</label>
                                 <mat-form-field class="form-group form-control">
-                                
-                                    <mat-select matNativeControl  style="width:100%;" formControlName="destLangId" [ngModel]="selected_data.destLangId" [required]="true" >                       
+
+                                    <mat-select matNativeControl  style="width:100%;" formControlName="destLangId" [ngModel]="selected_data.destLangId" [required]="true" >
                                       <mat-option value="" selected></mat-option>
                                       <mat-option *ngFor="let c of languages" [value]="c.code">
                                         {{c.name}}
@@ -103,13 +103,13 @@
                                     </mat-select>
                                   </mat-form-field>
                                 <!-- <div class="form-group form-control">
-                                    
+
                                     <select  style="width:100%;" formControlName="destLangId" [(ngModel)]="selected_data.destLangId">
                                         <option *ngFor="let c of languages" [ngValue]="c">{{c.name}}</option>
                                       </select>
-                                   
+
                                 </div> -->
-                                
+
                             </div>
                             <div class="col-lg-12 col-md-12">
                                 <div class="form-group">
@@ -132,7 +132,7 @@
                                     <input type="file"  class="form-control" formControlName="sourceToDestDic"   (change)='openFile($event,"sourceDic")' >
                                 </div>
                             </div>
-                            
+
                             <div class="col-lg-12 col-md-12">
                                 <div class="form-group">
                                     <label >Upload  Destination to Source Language Dictionary</label>

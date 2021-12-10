@@ -1,37 +1,40 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class ModelsService {
 
-  constructor() { }
+    constructor() {
+    }
 }
 
 export interface IDropdown {
-  code : string;
-  name : string;
-  }
+    code: string;
+    name: string;
+}
 
 export interface IConfig {
-  endpoint : string;
-  key : string;
-  database: any;
-  container: any;
-  items:any;
-  }
+    endpoint: string;
+    key: string;
+    database: any;
+    container: any;
+    items: any;
+}
 
-  export interface IInputData {
-    id : any;
-    email : string;
-    sourceLangId : any;
+export interface IInputData {
+    id: any;
+    email: string;
+    sourceLangId: any;
     sourceLang: any;
     sourceLangDesc: any;
     destLangId: any;
-    destLang:any;
-    destLangDesc:any;
-    sourceToDestDic:any;
-    destToSourceDic:any;
-    completed : boolean;
+    destLang: any;
+    destLangDesc: any;
+    sourceToDestDic: any;
+    destToSourceDic: any;
+    completed: boolean;
     partitionKey: any;
-    }
+    sourceModel: any;
+    messageToTranslate: any;
+}

@@ -9,10 +9,10 @@ namespace LamaFunctions
 {
     public class DataAccess
     {
-        private  readonly string EndpointUri = "<Need to get from azure>";
+        private  readonly string EndpointUri = "https://llamas-malas.documents.azure.com:443/";
 
         // The primary key for the Azure Cosmos account.
-        private  readonly string PrimaryKey = "<need to get from azure>";
+        private  readonly string PrimaryKey = "add your key here";
         private  CosmosClient cosmosClient;
 
         // The database we will create
@@ -40,13 +40,13 @@ namespace LamaFunctions
         {
             // Create a new database
             this.database = await this.cosmosClient.CreateDatabaseIfNotExistsAsync(databaseId);
-            //Console.WriteLine("Created Database: {0}\n", this.database.Id);
+            Console.WriteLine("Created Database: {0}\n", this.database.Id);
         }
         private async Task CreateContainerAsync()
         {
             // Create a new container
             this.container = await this.database.CreateContainerIfNotExistsAsync(containerId, "/partitionKey");
-            //Console.WriteLine("Created Container: {0}\n", this.container.Id);
+            Console.WriteLine("Created Container: {0}\n", this.container.Id);
         }
 
         private async Task ScaleContainerAsync()
