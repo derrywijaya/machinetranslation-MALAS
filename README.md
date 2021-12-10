@@ -23,6 +23,7 @@ https://firebase.google.com/docs/hosting/quickstart
 * Next you will want to set up a firebase account
 * Follow the instructions in the quickstart. Note I had to use windows powershell to get it to work correctly
 * Once the webpage is deployed you will see the wepage live but will none of the upload will work this is because you have to hook it up to Azure
+* I deployed the web folder since I thought it made the most sense and was the easiest
 
 ### Setup Azure ###
 https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-your-first-function-visual-studio?tabs=in-process&pivots=programming-runtime-functions-v3
@@ -31,8 +32,13 @@ https://docs.microsoft.com/en-us/azure/cosmos-db/sql/sql-api-get-started
 * First you will need visual studio, do not try to do this in another IDE it is pain
 * Next setup a Microsoft Azure free account
 * Next run through both tutorial to understand the relationship of how the Azure functions work with NodeJS
+* Next please go through the tutorial if you did not
 * Next copy the code and redeploy the Azure functions in your enviroment
-* IMPORTANT: After you have deployed your function make sure you allow the webaddress from the firebase deployment under CORS
+* Dont forget to modify any places in the code where you need to change the api keys
+* IMPORTANT: After you have deployed your function make sure you allow the webaddress from the firebase deployment under CORS. This is on the main page of the azure function.
+* Dont forget to add your keys and endpoints to https://github.com/goutern/machinetranslation-MALAS/blob/main/web/src/services/data-access.service.ts 
+* Also add your key to https://github.com/goutern/machinetranslation-MALAS/blob/main/LamaFunctions/LamaFunctions/DataAccess.cs
+* Please reach out if you are stuck on the Azure step. It is honeslty a pain. 
 
 ### Setup SCC ###
 * Last there are two script that are ment to run on the SCC first on pulls data from Azure second pushes data
@@ -41,6 +47,7 @@ https://docs.microsoft.com/en-us/azure/cosmos-db/sql/sql-api-get-started
 ## Questions ##
 If you have questions please reach out!
 Nicholasgoutermout@gmail.com
+goutern@bu.edu
 
 sources 
 
