@@ -43,6 +43,7 @@ https://docs.microsoft.com/en-us/azure/cosmos-db/sql/sql-api-get-started
 ### Setup SCC ###
 * Last there are two script that are ment to run on the SCC first on pulls data from Azure second pushes data
 * These scripts are easy to manipulate and run
+* Currently these scripts fetch all data available from the database so becafeful as it could get expensive quickly
 
 ## Questions ##
 If you have questions please reach out!
