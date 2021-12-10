@@ -12,7 +12,7 @@ namespace LamaFunctions
         private  readonly string EndpointUri = "https://llamas-malas.documents.azure.com:443/";
 
         // The primary key for the Azure Cosmos account.
-        private  readonly string PrimaryKey = "PzjjaoYonDsFBOec7YQdElje47VfZZlS73nu81NhdMXqXJ9lKCw29t2PDrWKstBDpQVyMfxkO3zS5SjRm11c6A==";
+        private  readonly string PrimaryKey = "add your key here";
         private  CosmosClient cosmosClient;
 
         // The database we will create
