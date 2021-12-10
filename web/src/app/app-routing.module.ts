@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { GalleryPageComponent } from './components/pages/gallery-page/gallery-page.component';
 import { EventsPageComponent } from './components/pages/events-page/events-page.component';
 import { ErrorPageComponent } from './components/pages/error-page/error-page.component';
+// tslint:disable-next-line:max-line-length
 import { CaseStudiesThreeColumnsPageComponent } from './components/pages/case-studies-three-columns-page/case-studies-three-columns-page.component';
 import { HomepageOneComponent } from './components/pages/homepage-one/homepage-one.component';
 import { HomepageTwoComponent } from './components/pages/homepage-two/homepage-two.component';
@@ -21,6 +22,7 @@ import { EventsDetailsPageComponent } from './components/pages/events-details-pa
 import { CoursesPageComponent } from './components/pages/courses-page/courses-page.component';
 import { CoursesDetailsPageComponent } from './components/pages/courses-details-page/courses-details-page.component';
 import { UploadDataComponent } from './components/pages/upload-data/upload-data.component';
+import { TranslateDataComponent } from './components/pages/translate-data/translate-data.component';
 
 const routes: Routes = [
     {path: '', component: UploadDataComponent},
@@ -44,6 +46,7 @@ const routes: Routes = [
     {path: 'blog-details', component: BlogDetailsPageComponent},
     {path: 'contact', component: ContactPageComponent},
     {path: 'upload', component: UploadDataComponent},
+    {path: 'translate', component: TranslateDataComponent},
     {path: '**', component: ErrorPageComponent}
 ];
 

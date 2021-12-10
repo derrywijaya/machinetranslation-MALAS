@@ -1,0 +1,102 @@
+<!-- <section class="page-title-area">
+    <div class="container">
+         <div class="page-title-content" *ngFor="let pageTitle of pageTitleArea;">
+            <h2>{{pageTitle.title}}</h2>
+            <ul>
+                <li><a routerLink="/">Home</a></li>
+                <li>{{pageTitle.title}}</li>
+            </ul>
+        </div>
+    </div>
+
+     <div class="shape-img1"><img src="assets/img/shape/shape1.svg" alt="image"></div>
+    <div class="shape-img2"><img src="assets/img/shape/shape2.png" alt="image"></div>
+    <div class="shape-img3"><img src="assets/img/shape/shape3.png" alt="image"></div>
+</section> -->
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<section class="contact-area pb-100">
+    <div class="container" id="topDiv">
+        <div class="section-title" *ngFor="let sectionTitleContent of sectionTitle;">
+            <span class="sub-title"><img src="assets/img/star-icon.png"
+                                         alt="image"> {{sectionTitleContent.subTitle}}</span>
+            <h2>{{sectionTitleContent.title}}</h2>
+            <p>{{sectionTitleContent.paragraphText}}</p>
+        </div>
+
+        <div *ngIf="IsSuccess" class="row section-title">
+            <blockquote class="wp-block-quote">
+                <p>Hola!</p>
+
+                <cite>Derry</cite>
+            </blockquote>
+        </div>
+
+        <div class="row">
+
+
+            <div class="col-lg-12 col-md-12">
+                <div class="contact-form">
+                    <form id="contactForm" [formGroup]="ngForm" (ngSubmit)="onSubmit()">
+                        <div class="row">
+
+
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group">
+                                    <label class="required">Email</label>
+                                    <input type="email" class="form-control" formControlName="email"
+                                           [(ngModel)]="selectedData.email" placeholder="Your email address"
+                                           [required]="true">
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12">
+
+                                <label class="required">Select A Model</label>
+                                <!-- <div class="form-group form-control ">
+
+                                    <select  style="width:100%;" formControlName="sourceLangId" [ngModel]="selected_data.sourceLangId" >
+                                        <option *ngFor="let c of languages" value="'{{c.code}}'">{{c.name}}</option>
+                                      </select>
+
+                                </div> -->
+
+                                <mat-form-field class="form-group form-control">
+
+                                    <mat-select matNativeControl style="width:100%;" formControlName="sourceModel"
+                                                [ngModel]="selectedData.sourceModel" [required]="true">
+                                        <mat-option value="" selected></mat-option>
+                                        <mat-option *ngFor="let c of languages" [value]="c.code">
+                                            {{c.name}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+
+                            </div>
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group">
+                                    <label class="required">Message To Translate</label>
+                                    <input type="text" class="form-control" formControlName="messageToTranslate"
+                                           [(ngModel)]="selectedData.messageToTranslate"
+                                           placeholder="Message To Translate" [required]="true">
+                                </div>
+
+                            </div>
+                            <br>
+
+
+                            <div class="col-lg-12 col-md-12">
+                                <button type="submit" [disabled]="ngForm.invalid" class="btn default-btn">Translate!
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,19 +1,25 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class FunctionService {
 
-  myAppUrl: string = "https://lamafunctions20210904182502.azurewebsites.net/api/";
+    myAppUrl = 'https://lamafunctions20211103234507.azurewebsites.net/api/';
 
-  //myAppUrl: string = "http://localhost:7071/api/";
+    // myAppUrl: string = "http://localhost:7071/api/";
 
-  constructor(private _http: HttpClient) { }
+    constructor(private Http: HttpClient) {
+        console.log('constructed');
+    }
 
-  SaveData(data) {
-    //console.log(data)
-    return this._http.post(this.myAppUrl+"upload-data", data);
-  }
+    SaveData(data) {
+        console.log('url:' + this.myAppUrl + 'upload-data');
+        return this.Http.post(this.myAppUrl + 'upload-data', data);
+    }
+    Translate(data) {
+        // console.log('url:' + this.myAppUrl + 'translate-data');
+        return this.Http.post(this.myAppUrl + 'translate-data', data);
+    }
 }
